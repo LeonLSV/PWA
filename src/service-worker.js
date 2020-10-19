@@ -14,6 +14,8 @@ workbox.routing.registerNavigationRoute(
   workbox.precaching.getCacheKeyForURL("./index.html")
 );
 
+workbox.googleAnalytics.initialize();
+
 // La API usa Stale While Revalidate para mayor velocidad
 workbox.routing.registerRoute(
   /^https?:\/\/www.themealdb.com\/api\/.*/,
@@ -22,18 +24,18 @@ workbox.routing.registerRoute(
 );
 
 // Last fuentes van con Cache First y vencen al mes
-// workbox.routing.registerRoute(
-//   /^https:\/\/fonts.(?:googleapis|gstatic).com\/(.*)/,
-//   workbox.strategies.cacheFirst({
-//     cacheName: "google-fonts-cache",
-//     plugins: [
-//       new workbox.expiration.Plugin({
-//         maxAgeSeconds: 30 * 24 * 60 * 60,
-//       }),
-//     ],
-//   }),
-//   "GET"
-// );
+workbox.routing.registerRoute(
+  /^https:\/\/fonts.(?:googleapis|gstatic).com\/(.*)/,
+  workbox.strategies.cacheFirst({
+    cacheName: "google-fonts-cache",
+    plugins: [
+      new workbox.expiration.Plugin({
+        maxAgeSeconds: 30 * 24 * 60 * 60,
+      }),
+    ],
+  }),
+  "GET"
+);
 
 // Todo lo demás usa Network First
 workbox.routing.registerRoute(

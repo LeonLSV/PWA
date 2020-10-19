@@ -11,10 +11,10 @@ import ReactGA from "react-ga";
 const history = createBrowserHistory();
 
 ReactGA.initialize("UA-000000-01");
-ReactGA.pageview(window.location.pathname + windows.location.search);
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 history.listen(function (location) {
-  ReactGA.pageview(window.location.pathname + windows.location.search);
+  ReactGA.pageview(window.location.pathname + window.location.search);
 });
 
 //hola, cambiado algo

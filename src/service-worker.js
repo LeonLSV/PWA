@@ -15,11 +15,11 @@ workbox.routing.registerNavigationRoute(
 );
 
 // La API usa Stale While Revalidate para mayor velocidad
-// workbox.routing.registerRoute(
-//   /^https?:\/\/www.themealdb.com\/api\/.*/,
-//   workbox.strategies.staleWhileRevalidate(),
-//   "GET"
-// );
+workbox.routing.registerRoute(
+  /^https?:\/\/www.themealdb.com\/api\/.*/,
+  workbox.strategies.staleWhileRevalidate(),
+  "GET"
+);
 
 // Last fuentes van con Cache First y vencen al mes
 // workbox.routing.registerRoute(

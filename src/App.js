@@ -1,10 +1,11 @@
-import React from 'react'
-import { BrowserRouter, Route, Link } from "react-router-dom"
-import Home from './pages/Home'
-import Recipe from './pages/Recipe'
-import Timer from './pages/Timer'
-import './App.css'
-
+import React from "react";
+import { Router, Route, Link } from "react-router-dom";
+import Home from "./pages/Home";
+import Recipe from "./pages/Recipe";
+import Timer from "./pages/Timer";
+import "./App.css";
+import { createBrowserHistory } from "history";
+import ReactGA from "react-ga";
 
 export default class App extends React.Component {
   render() {
